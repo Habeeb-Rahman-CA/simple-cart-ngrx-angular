@@ -1,0 +1,11 @@
+<div>
+    <h2>Cart items</h2>
+    <p>Total items: {{totalCount$ | async}}</p>
+    <p>Total Price: {{totalPrice$ | async | currency}}</p>
+    <ul>
+        @for (item of item$ |async; track $index) {
+        <li>{{item.name}} - {{item.price}} - <button (click)="removeFromCart(item.id)">Remove</button></li>
+        }
+    </ul>
+    <button (click)="addToCart()">Add</button>
+</div>
